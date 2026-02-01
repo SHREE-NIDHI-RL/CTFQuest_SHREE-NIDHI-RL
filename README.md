@@ -1,2 +1,69 @@
 # CTFQuest_SHREE-NIDHI-RL
-A forensics based CTF Challenge
+
+CHALLENGE NAME :TRUST BUT VERIFY
+When a player opens the challenge, they are given one zip file. After extracting it, they see three files:
+1.evidence.png
+2.audio.zip
+3.image.zip
+
+STEP 1: Checking evidence.png
+ 
+The  first step is to inspect the image.If the player tries normal things like opening the image or running strings,nothing useful comes up.
+This makes them to check metadata.When the metadata of evidence.png is inspected using a tool like exiftool, they see a message clearly saying that this is not the flag and that they should not stop here.
+
+STEP 2: Verifying the evidence file instead of trusting it
+
+As challenge name is about verification, the next thing to do is hash the file.
+The player calculates the SHA-256 hash of evidence.png.At this point, the important realization is that the hash itself is not just a check, but is actually used as a password.
+When the player tries that SHA-256 hash as the password for audio.zip, the archive successfully opens.
+
+SREP 3: Decoding the audio clue
+The audio.zip  is AES-256 encrypted. Inside audio.zip,there is a single audio file.
+When the player listens carefully , they realize that the audio  says letters of a English word.
+It gives a very clear keyword:IMAGEKEY
+This keyword is not random. It is meant to be used.
+
+STEP  4: Unlocking image.zip
+
+Using the decoded  keyword IMAGEKEY as the password, the player can now extract image.zip.
+Inside this zip, there are three things:
+stnemgarf.jpg
+README.txt
+verify.dat
+The image stnemgarf.jpg shows a fragmented 2 pieces of glass which gives a hint that the flag is splitted.
+
+STEP 5: Getting the first half of the flag from the image
+
+When the metadata of stnemgarf.jpg is inspected, a  encoded string appears in the description field.That string is encodBase64URL.
+The correct way to solve this part is:
+Decode the Base64 value.
+Take the decoded result and apply reverse ROT-8.
+After doing both steps, the player gets the first half of the flag:
+SECE{trust_
+This confirms that the solution is on the right path, but the flag is still incomplete.
+
+STEP 6: Understanding the hint in README.txt
+
+The README file does not contain any direct flag text. Instead, it contains a short message talking about:
+verification, numbers, interpretation, adding things up correctly.
+This is meant to guide the player toward the remaining file, not confuse them.
+
+STEP 7: Extracting the second half from verify.dat
+
+When the contents of verify.dat are viewed, the player sees a series of hexadecimal numbers with noise inbetween.By interpreting these hex values as ASCII characters reveals the hidden message:
+but_verify}
+This gives the second half of the flag.
+
+STEP 8:Reconstruction of flag
+
+First half:
+SECE{trust_
+
+Second half:
+but_verify}
+
+Putting both together gives the final flag:
+
+SECE{trust_but_verify}
+
+(Instead of extracting the files  through default windows option use tools like 7zip)
