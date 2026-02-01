@@ -1,5 +1,13 @@
 # CTFQuest_SHREE-NIDHI-RL
-#CHALLENGE NAME :TRUST BUT VERIFY
+
+
+#CHALLENGE TITLE : KEEP WALKING 
+#AUTHOR NAME : SHREE NIDHI RL
+#CATEGORY : Forensics
+#Description : Everything you need is aldready there .Whether you find it depends it depends on the order you look.
+#LEVEL : Medium 
+
+
 
 When a player opens the challenge, they are given one zip file. After extracting it, they see three files:
 1.evidence.png
