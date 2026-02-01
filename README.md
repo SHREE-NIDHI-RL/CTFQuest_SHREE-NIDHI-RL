@@ -1,6 +1,6 @@
 # CTFQuest_SHREE-NIDHI-RL
+#CHALLENGE NAME :TRUST BUT VERIFY
 
-CHALLENGE NAME :TRUST BUT VERIFY
 When a player opens the challenge, they are given one zip file. After extracting it, they see three files:
 1.evidence.png
 2.audio.zip
