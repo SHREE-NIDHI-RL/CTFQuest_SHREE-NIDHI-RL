@@ -16,7 +16,7 @@ When a player opens the challenge, they are given one zip file. After extracting
 
 STEP 1: Checking evidence.png
  
-The  first step is to inspect the image.If the player tries normal things like opening the image or running strings,nothing useful comes up.
+The  first step is to inspect the image ,the image contains a flag that gives a hint as hash.If the player tries normal things like opening the image or running strings,nothing useful comes up.
 This makes them to check metadata.When the metadata of evidence.png is inspected using a tool like exiftool, players see a message saying that this is not the flag.
 
 STEP 2: Verifying the evidence file instead of trusting it
